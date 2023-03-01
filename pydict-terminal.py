@@ -22,7 +22,7 @@ def write_config(api_key):
 def search_word(word):
     global API_KEY, BASE_URL
     if API_KEY is None:
-        print("API key is not set. Please run the program with the --api-key option to set the API key.")
+        print("API key is not set. Please run the program with the --api-key option to set the API key.\nExample: python pydict.py --api-key abczxy")
         return
     if not all(c in string.printable for c in word):
         print("The word contains non-ASCII characters that are not supported by Wordnik.")
