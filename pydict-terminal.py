@@ -37,7 +37,7 @@ def search_word(word):
     elif response.status_code == 401:
         print("The API key is invalid.")
     else:
-        definitions = [d['text'] for d in response.json()]
+        definitions = [d['text'] for d in response.json() if 'text' in d]
         if not definitions:
             print("No definitions found.")
         else:
