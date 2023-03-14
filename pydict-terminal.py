@@ -3,20 +3,21 @@ import sys
 import json
 import argparse
 import string
+import os
 
 API_KEY = None
 BASE_URL = "https://api.wordnik.com/v4/word.json/{}/definitions?limit=200&includeRelated=true&useCanonical=true&includeTags=false&api_key={}"
 
 def read_config():
     try:
-        with open('config.json', 'r') as f:
+        with open(os.path.join(os.path.dirname(__file__), 'config.json'), 'r') as f:
             config = json.load(f)
         return config.get('api_key', None)
     except FileNotFoundError:
         return None
 
 def write_config(api_key):
-    with open('config.json', 'w') as f:
+    with open(os.path.join(os.path.dirname(__file__), 'config.json'), 'w') as f:
         json.dump({'api_key': api_key}, f)
 
 def search_word(word):
