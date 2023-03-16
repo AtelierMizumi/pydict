@@ -30,10 +30,6 @@ def search_word(word):
         result_box.delete("1.0", tk.END)
         result_box.insert(tk.END, "The word contains non-ASCII characters that are not supported by Wordnik.")
         return
-    if len(word.split()) > 1:
-        result_box.delete("1.0", tk.END)
-        result_box.insert(tk.END, "Please enter only one word at a time.")
-        return
     url = BASE_URL.format(word, API_KEY)
     response = requests.get(url)
     if response.status_code == 404:

@@ -28,9 +28,6 @@ def search_word(word):
     if not all(c in string.printable for c in word):
         print("The word contains non-ASCII characters that are not supported by Wordnik.")
         return
-    if len(word.split()) > 1:
-        print("Please enter only one word at a time.")
-        return
     url = BASE_URL.format(word, API_KEY)
     response = requests.get(url)
     if response.status_code == 404:
