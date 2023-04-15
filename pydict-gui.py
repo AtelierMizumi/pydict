@@ -1,3 +1,6 @@
+#!/usr/local/bin/python
+# -*- coding: utf-8 -*-
+
 import tkinter as tk
 import requests
 import json
@@ -72,6 +75,7 @@ class Pydict:
         root = tk.Tk()
         root.title("Pydict")
         root.geometry("600x400")
+        root.option_add("*Font", "TkDefaultFont 12")
 
         main_frame = tk.Frame(root, padx=10, pady=10)
         main_frame.pack(fill=tk.BOTH, expand=True)
